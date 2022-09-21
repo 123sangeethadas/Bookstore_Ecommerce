@@ -1,22 +1,18 @@
 {% extends "../base.html"%}
 
-<!DOCTYPE html>
+
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title%} home {%endblock %}</title>
+{% block title%} 
+       {% if category %} {{category.name}}{% else %}products{% endif %}
+       {%endblock %}
     
- </head>
-<body>
+ 
     {%block content%}
     
       
 
       <div class="album py-8 " >
-        <div class="container">
+        <div class="container bg-light">
            <div class="pb-5 h5 pt-5">{{category.name|title}}</div>
            <div class="row row-cols-1 row-cols-md-5 row-cols-md-5 g-3">
            {% for p in products %}
@@ -44,5 +40,4 @@
     {%endblock%}
 
 
-   </body>
-</html>
+   
